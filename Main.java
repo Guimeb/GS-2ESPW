@@ -5,9 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         opMenu();
-        opMenuEsgoto();
-        Esgoto esgoto = new Esgoto("Esgoto 1", "1", "Rua 1", "Ativo");
-        esgotoPrint(esgoto);
+        opMenuCamera();
     }
 
     private static void opMenu() {
@@ -17,30 +15,34 @@ public class Main {
         System.out.println("====================================");
     }
 
-    private static void opMenuEsgoto() {
+    private static void opMenuCamera() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("1 - Cadastrar Esgoto");
-        System.out.println("2 - Listar Esgoto");
-        System.out.println("3 - Atualizar Esgoto");
-        System.out.println("4 - Deletar Esgoto");
+        System.out.println("1 - Cadastrar Camera");
+        System.out.println("2 - Listar Cameras");
+        System.out.println("3 - Atualizar Camera");
+        System.out.println("4 - Deletar Camera");
         System.out.println("5 - Sair");
         // User input scanner
         int optEsMenu = sc.nextInt();
 
         switch (optEsMenu) {
             case 1:
-                opMenu();
-                break;
+            System.out.println("Digite o endereço da câmera: ");
+            String endereco = sc.nextLine();
+            
+            System.out.println("Digite o tipo da câmera (1 para CANAL, 2 para ESGOTO): ");
+            int opTipo = sc.nextInt();
+            Camera.TipoCam tipo = (opTipo == 1) ? Camera.TipoCam.Canal : Camera.TipoCam.Esgoto;
+            
+            Camera newCamera = new Camera(endereco, tipo);
+            newCamera.addCamera(newCamera);
+                
+            System.out.println("Câmera cadastrada com sucesso!");
+            newCamera.relatorioCam();
+            break;
         
             default:
                 break;
         }
-    }
-
-    private static void esgotoPrint(Esgoto esgoto) {
-        System.out.println("Nome: " + esgoto.getNome());
-        System.out.println("ID: " + esgoto.getId());
-        System.out.println("Endereço: " + esgoto.getEndereco());
-        System.out.println("Status: " + esgoto.getStatus());
     }
 }
