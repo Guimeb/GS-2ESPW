@@ -48,7 +48,6 @@ public class Camera {
 
         Random random = new Random();
         int numeroAleatorio = random.nextInt(5) + 1;
-        System.out.println("Número aleatório: " + numeroAleatorio);
         switch (numeroAleatorio) {
             case 1:
                 System.out.println("Vias limpas");
