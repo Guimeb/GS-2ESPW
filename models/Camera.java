@@ -8,7 +8,7 @@ public class Camera {
     private String id;
     private String endereco;
     private TipoCam tipo;
-    private ArrayList<Camera> cameras = new ArrayList<>();
+    private static ArrayList<Camera> cameras = new ArrayList<>();
 
     public enum TipoCam {
         Canal,
@@ -19,10 +19,9 @@ public class Camera {
         this.id = generateRandomId();
         this.endereco = endereco;
         this.tipo = tipo;
-        this.cameras = new ArrayList<>();
     }
 
-    public void addCamera(Camera camera) {
+    public static void addCamera(Camera camera) {
         cameras.add(camera);
     }
 
@@ -57,6 +56,7 @@ public class Camera {
                 break;
         }
     }
+
     // Getters e Setters
 
     public String getId() {
@@ -83,7 +83,7 @@ public class Camera {
         this.tipo = tipo;
     }
 
-    public ArrayList<Camera> getCameras() {
+    public static ArrayList<Camera> getCameras() {
         return cameras;
     }
 }
