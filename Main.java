@@ -153,8 +153,12 @@ public class Main {
                     String nomeCanal = sc.nextLine();
                     Canal canal = encontrarCanalPorNome(nomeCanal);
                     if (canal != null) {
-                        camera.setCanal(canal);
-                        System.out.println("Câmera vinculada ao canal com sucesso!");
+                        if (camera.getTipo() == Camera.TipoCam.Canal) {
+                            camera.setCanal(canal);
+                            System.out.println("Câmera vinculada ao canal com sucesso!");
+                        } else {
+                            System.out.println("Erro: Câmera de esgoto não pode ser vinculada a um canal.");
+                        }
                     } else {
                         System.out.println("Canal não encontrado.");
                     }
@@ -165,8 +169,12 @@ public class Main {
                     String nomeEsgoto = sc.nextLine();
                     Esgoto esgoto = encontrarEsgotoPorNome(nomeEsgoto);
                     if (esgoto != null) {
-                        camera.setEsgoto(esgoto);
-                        System.out.println("Câmera vinculada ao esgoto com sucesso!");
+                        if (camera.getTipo() == Camera.TipoCam.Esgoto) {
+                            camera.setEsgoto(esgoto);
+                            System.out.println("Câmera vinculada ao esgoto com sucesso!");
+                        } else {
+                            System.out.println("Erro: Câmera de canal não pode ser vinculada a um esgoto.");
+                        }
                     } else {
                         System.out.println("Esgoto não encontrado.");
                     }
@@ -285,6 +293,3 @@ public class Main {
         System.out.println("====================================");
     }
 }
-
-           
-

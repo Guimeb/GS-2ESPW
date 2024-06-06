@@ -63,9 +63,13 @@ public class Camera {
     }
 
     public void setCanal(Canal canal) {
-        this.canal = canal;
-        if (canal != null) {
-            this.esgoto = null;
+        if (this.tipo == TipoCam.Canal) {
+            this.canal = canal;
+            if (canal != null) {
+                this.esgoto = null;
+            }
+        } else {
+            System.out.println("Erro: Câmera de esgoto não pode ser vinculada a um canal.");
         }
     }
 
@@ -74,9 +78,13 @@ public class Camera {
     }
 
     public void setEsgoto(Esgoto esgoto) {
-        this.esgoto = esgoto;
-        if (esgoto != null) {
-            this.canal = null;
+        if (this.tipo == TipoCam.Esgoto) {
+            this.esgoto = esgoto;
+            if (esgoto != null) {
+                this.canal = null;
+            }
+        } else {
+            System.out.println("Erro: Câmera de canal não pode ser vinculada a um esgoto.");
         }
     }
 }
