@@ -34,37 +34,49 @@ public class Main {
             System.out.print("Escolha uma opção: ");
             int optEsMenu = sc.nextInt();
             sc.nextLine();  // Consome a nova linha
+            System.out.print("");
+
 
             switch (optEsMenu) {
                 case 1:
                     cadastrarCanal(sc);
+                    separacao();
                     break;
                 case 2:
                     cadastrarEsgoto(sc);
+                    separacao();
                     break;
                 case 3:
                     cadastrarCamera(sc);
+                    separacao();
                     break;
                 case 4:
                     listarCanais();
+                    separacao();
                     break;
                 case 5:
                     listarEsgotos();
+                    separacao();
                     break;
                 case 6:
                     listarCameras();
+                    separacao();
                     break;
                 case 7:
                     vincularDesvincularCamera(sc);
+                    separacao();
                     break;
                 case 8:
                     apagarCanal(sc);
+                    separacao();
                     break;
                 case 9:
                     apagarEsgoto(sc);
+                    separacao();
                     break;
                 case 10:
                     apagarCamera(sc);
+                    separacao();
                     break;
                 case 11:
                     System.out.println("Saindo...");
@@ -72,6 +84,7 @@ public class Main {
                     return;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
+                    separacao();
             }
             System.out.println();  // Linha em branco para melhor formatação
         }
@@ -266,6 +279,10 @@ public class Main {
             }
         }
         return null;
+    }
+
+    private static void separacao() {
+        System.out.println("====================================");
     }
 }
 

@@ -1,7 +1,6 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.UUID;
 
 public class Camera {
@@ -37,35 +36,13 @@ public class Camera {
 
     public void relatorioCam() {
         System.out.println("ID: " + this.id);
+        System.out.println("Tipo de câmera: " + this.tipo);
         if (this.canal != null) {
             System.out.println("Endereço: " + this.canal.getEndereco());
+            System.out.println("Status: " + this.canal.getStatus());
         } else if (this.esgoto != null) {
             System.out.println("Endereço: " + this.esgoto.getEndereco());
-        } else {
-            System.out.println("Endereço: Não vinculada");
-        }
-        System.out.println("Tipo de câmera: " + this.tipo);
-
-        Random random = new Random();
-        int numeroAleatorio = random.nextInt(5) + 1;
-        switch (numeroAleatorio) {
-            case 1:
-                System.out.println("Vias limpas");
-                break;
-            case 2:
-                System.out.println("Vias com poluição baixa");
-                break;
-            case 3:
-                System.out.println("Vias com poluição moderada");
-                break;
-            case 4:
-                System.out.println("Vias com alta poluição");
-                break;
-            case 5:
-                System.out.println("Vias em situação crítica");
-                break;
-            default:
-                break;
+            System.out.println("Status: " + this.esgoto.getStatus());
         }
     }
 
