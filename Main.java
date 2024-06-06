@@ -10,15 +10,18 @@ public class Main {
         opMenuPrincipal();
     }
 
+    // Método para exibir o cabeçalho do menu
     private static void opMenu() {
         System.out.println("====================================");
         System.out.println("-------- Projeto Onda Limpa --------");
         System.out.println("====================================");
     }
 
+    // Método para exibir e gerenciar o menu principal
     private static void opMenuPrincipal() {
         Scanner sc = new Scanner(System.in);
 
+        // Loop infinito para exibir e manter o menu em execução até que o usuário escolha sair
         while (true) {
             System.out.println("1 - Cadastrar Canal");
             System.out.println("2 - Cadastrar Esgoto");
@@ -32,11 +35,11 @@ public class Main {
             System.out.println("10 - Apagar Camera");
             System.out.println("11 - Sair");
             System.out.print("Escolha uma opção: ");
-            int optEsMenu = sc.nextInt();
+            int optEsMenu = sc.nextInt(); // Leitura da opção escolhida pelo usuário
             sc.nextLine();  // Consome a nova linha
             System.out.print("");
 
-
+            // Estrutura de controle para as opções do menu
             switch (optEsMenu) {
                 case 1:
                     cadastrarCanal(sc);
@@ -90,6 +93,7 @@ public class Main {
         }
     }
 
+    // Método para cadastrar um canal
     private static void cadastrarCanal(Scanner sc) {
         System.out.print("Digite o nome do canal: ");
         String nome = sc.nextLine();
@@ -100,11 +104,13 @@ public class Main {
         System.out.print("Digite o status do canal: ");
         String status = sc.nextLine();
 
+        // Criação de um novo objeto Canal com os dados fornecidos pelo usuário
         Canal newCanal = new Canal(nome, endereco, status);
         Canal.addCanal(newCanal);
         System.out.println("Canal cadastrado com sucesso!");
     }
 
+    // Método para cadastrar um esgoto
     private static void cadastrarEsgoto(Scanner sc) {
         System.out.print("Digite o nome do esgoto: ");
         String nome = sc.nextLine();
@@ -115,24 +121,27 @@ public class Main {
         System.out.print("Digite o status do esgoto: ");
         String status = sc.nextLine();
 
-        Esgoto newEsgoto = new Esgoto(nome, endereco, status        );
-        Esgoto.addEsgoto(newEsgoto);
+        // Criação de um novo objeto Esgoto com os dados fornecidos pelo usuário
+        Esgoto newEsgoto = new Esgoto(nome, endereco, status);
+        Esgoto.addEsgoto(newEsgoto); // Adição do esgoto à lista de esgotos
         System.out.println("Esgoto cadastrado com sucesso!");
     }
 
+    // Método para cadastrar uma câmera
     private static void cadastrarCamera(Scanner sc) {
         System.out.print("Digite o tipo da câmera (1 para CANAL, 2 para ESGOTO): ");
         int opTipo = sc.nextInt();
-        Camera.TipoCam tipo = (opTipo == 1) ? Camera.TipoCam.Canal : Camera.TipoCam.Esgoto;
+        Camera.TipoCam tipo = (opTipo == 1) ? Camera.TipoCam.Canal : Camera.TipoCam.Esgoto; // Converte a entrada do usuário para o tipo Camera.TipoCam correspondente
         sc.nextLine();  // Consome a nova linha
 
-        Camera newCamera = new Camera(tipo);
-        Camera.addCamera(newCamera);
+        Camera newCamera = new Camera(tipo); // Criação de um novo objeto Camera com o tipo especificado pelo usuário
+        Camera.addCamera(newCamera); // Adição da câmera à lista de câmeras
         System.out.println("Câmera cadastrada com sucesso!");
 
-        newCamera.relatorioCam();
+        newCamera.relatorioCam(); // Exibição do relatório da câmera cadastrada
     }
 
+    // Método para vincular ou desvincular uma câmera de um canal ou esgoto
     private static void vincularDesvincularCamera(Scanner sc) {
         System.out.println("Vincular/Desvincular Câmera:");
         listarCameras();
@@ -192,6 +201,7 @@ public class Main {
         }
     }
 
+    // Método para apagar um canal
     private static void apagarCanal(Scanner sc) {
         System.out.println("Apagar Canal:");
         listarCanais();
@@ -206,6 +216,7 @@ public class Main {
         }
     }
 
+    // Método para apagar um esgoto
     private static void apagarEsgoto(Scanner sc) {
         System.out.println("Apagar Esgoto:");
         listarEsgotos();
@@ -220,6 +231,7 @@ public class Main {
         }
     }
 
+    // Método para apagar uma câmera
     private static void apagarCamera(Scanner sc) {
         System.out.println("Apagar Câmera:");
         listarCameras();
@@ -234,6 +246,7 @@ public class Main {
         }
     }
 
+    // Método para listar todos os canais cadastrados
     private static void listarCanais() {
         System.out.println("Listando Canais:");
         for (Canal canal : Canal.getCanais()) {
@@ -244,6 +257,7 @@ public class Main {
         }
     }
 
+    // Método para listar todos os esgotos cadastrados
     private static void listarEsgotos() {
         System.out.println("Listando Esgotos:");
         for (Esgoto esgoto : Esgoto.getEsgotos()) {
@@ -254,6 +268,7 @@ public class Main {
         }
     }
 
+    // Método para listar todas as câmeras cadastradas
     private static void listarCameras() {
         System.out.println("Listando Câmeras:");
         for (Camera camera : Camera.getCameras()) {
@@ -262,6 +277,7 @@ public class Main {
         }
     }
 
+    // Método para encontrar cada objeto por ID
     private static Camera encontrarCameraPorId(String id) {
         for (Camera camera : Camera.getCameras()) {
             if (camera.getId().equals(id)) {
@@ -289,6 +305,7 @@ public class Main {
         return null;
     }
 
+    // Método para exibir uma linha de separação
     private static void separacao() {
         System.out.println("====================================");
     }
