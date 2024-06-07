@@ -1,6 +1,9 @@
 # Global solution - Onda Limpa
 
 ## Integrantes:
+NOME: Fabrício Saavedra RM: 97631
+NOME: Guilherme Akio RM: 98582
+NOME: Guilherme Morais RM: 551981
 
 Turma: 2ESPW
 
