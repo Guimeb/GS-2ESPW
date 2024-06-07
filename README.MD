@@ -5,9 +5,11 @@
 Turma: 2ESPW
 
 Ano: 2024
+__
 
 ## Como executar o projeto
 O projeto pode ser executado pelo arquivo "Main.java" que recebera iteração de todos os arquivos dentro de "models"
+__
 
 ## Desenvolvimento e descrição do Projeto
 A O20 desafia a FIAP com o tema "Inovação Azul", buscando incentivar estudantes e entusiastas de tecnologia, inovação e sustentabilidade a contribuir com soluções que promovam uma gestão sustentável dos oceanos. O objetivo é desenvolver projetos que informem e conscientizem as populações costeiras e as empresas que dependem dos mares para sua existência sobre a importância da saúde dos oceanos. Para isso, propõe-se a criação de ferramentas de dados para gestão sustentável, utilizando a persistência e análise de dados para melhorar a gestão e o planejamento dos recursos marinhos, fornecendo insights valiosos por meio dos dados coletados.
